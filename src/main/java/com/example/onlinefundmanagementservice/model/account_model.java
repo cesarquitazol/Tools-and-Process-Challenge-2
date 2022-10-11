@@ -1,21 +1,31 @@
 package com.example.onlinefundmanagementservice.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "accounts")
+
 public class account_model {
 
     public account_model(){
     }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-    private String id;
+    @Column(name = "account type")
     private String type;
+    @Column(name = "account number")
     private Integer number;
+    @Column(name = "account name")
     private String name;
+    @Column(name = "balance")
     private Integer balance;
-    private String date;
+    @Column(name = "date")
+    private LocalDateTime date;
 
-    public account_model(String id, String type, Integer number, String name, Integer balance, String date) {
+    public account_model(int id, String type, Integer number, String name, Integer balance, LocalDateTime date) {
         this.id = id;
         this.type = type;
         this.number = number;
@@ -24,11 +34,11 @@ public class account_model {
         this.date = date;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -60,11 +70,11 @@ public class account_model {
         this.balance = balance;
     }
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

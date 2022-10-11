@@ -1,24 +1,33 @@
 package com.example.onlinefundmanagementservice.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "persons")
 public class person_model {
 
     public person_model(){
     }
-
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "address")
     private String address;
+    @Column(name = "postcode")
     private Integer postcode;
+    @Column(name = "age")
     private Integer age;
+    @Column(name = "job")
     private String job;
+    @Column(name = "email")
     private String email;
+    @Column(name = "phone")
     private String phone;
 
 
-    public person_model(String id, String name, String address, Integer postcode, Integer age, String job, String email, String phone) {
+    public person_model(int id, String name, String address, Integer postcode, Integer age, String job, String email, String phone) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -30,11 +39,11 @@ public class person_model {
 
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
